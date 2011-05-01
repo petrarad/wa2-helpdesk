@@ -8,8 +8,9 @@ from google.appengine.ext.webapp import template
 from google.appengine.api import users
 
 import config
+from controllers.base import Base
 
-class ListTickets(webapp.RequestHandler):
+class ListTickets(Base):
 
 	@login_required
 	def get(self):

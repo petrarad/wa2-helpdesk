@@ -4,8 +4,9 @@ from google.appengine.ext import webapp
 from google.appengine.api import users
 
 from models.ticket import Ticket
+from controllers.base import Base
 
-class AddTicket(webapp.RequestHandler):
+class AddTicket(Base):
 
 	def post(self):
 		ticket = Ticket()

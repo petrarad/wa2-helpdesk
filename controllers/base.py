@@ -4,18 +4,18 @@ import os
 from google.appengine.ext import webapp
 from django.utils import translation
 
+import config
+
 class Base(webapp.RequestHandler):
 
-	def initialize(self, request, response):
-		webapp.RequestHandler.initialize(self, request, response)
-
-		self.request.COOKIES = self.request.cookies #Cookies(self)
+	def setLanguage(self, lang = ''):
+		self.request.COOKIES = self.request.cookies
 		self.request.META = os.environ
 
 		language = translation.get_language_from_request(self.request)
 
-		if self.request.get('lang'):
-			if self.request.get('lang') == 'cs':
+		if lang:
+			if lang == 'cs':
 				language = 'cs_CZ'
 			else:
 				language = 'en'

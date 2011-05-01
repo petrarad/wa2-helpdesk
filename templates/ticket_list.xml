@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tickets>
+{% for ticket in tickets %}
+	<ticket id="{{ ticket.id }}">
+		<url>{{ ticket.url }}</url>
+		<description>{{ ticket.description|escape }}</description>
+		<owner>{{ ticket.owner }}</owner>
+	</ticket>
+{% endfor %}
+</tickets>

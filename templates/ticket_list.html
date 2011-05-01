@@ -13,11 +13,11 @@
 		</tr>
 		{% for ticket in tickets %}
 			<tr>
+				<td><a href="{{ ticket.url }}">{{ ticket.id }}</a></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td>{{ ticket.description|escape }}</td>
-				<td>{{ ticket.author.nickname }}</td>
+				<td><a href="{{ ticket.url }}">{{ ticket.description|escape }}</a></td>
+				<td>{{ ticket.owner }}</td>
 				<td></td>
 			</tr>
 		{% endfor %}

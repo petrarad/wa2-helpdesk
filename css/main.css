@@ -24,3 +24,12 @@ td, th {
 	width: 100%;
 	margin-bottom: 10px;
 }
+
+#footer {
+	position: fixed;
+	bottom: 10px;
+	text-align: center;
+	width: 100%;
+	font-size: 0.8em;
+	color: #555;
+}

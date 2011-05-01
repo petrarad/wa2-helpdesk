@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
   "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,5 +12,10 @@
 		<h1>WA2 - HelpDesk</h1>
 		{%block content%}{%endblock%}
 
+		<div id="footer">
+			&copy; 2011 Daniel Milde &amp; Radek Petráň <br />{% trans 'Language' %}:
+			<a href="?lang=cs">{% trans 'Czech' %}</a>,
+			<a href="?lang=en">{% trans 'English' %}</a>
+		</div>
 	</body>
 </html>

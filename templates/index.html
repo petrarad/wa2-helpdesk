@@ -2,18 +2,25 @@
 {%extends "base.html"%}
 
 {%block content%}
-	<table>
+	<table class="tickets">
 		<tr>
-			<th></th>
+			<th>{% trans 'ID' %}</th>
+			<th>{% trans 'project' %}</th>
+			<th>{% trans 'severity' %}</th>
+			<th>{% trans 'summary' %}</th>
+			<th>{% trans 'owner' %}</th>
+			<th>{% trans 'status' %}</th>
 		</tr>
-	{% for ticket in tickets %}
-		{% if ticket.author %}
-			<b>{{ ticket.author.nickname }}</b>:
-		{% else %}
-			An anonymous person wrote:
-		{% endif %}
-		<blockquote>{{ ticket.description|escape }}</blockquote>
-	{% endfor %}
+		{% for ticket in tickets %}
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>{{ ticket.description|escape }}</td>
+				<td>{{ ticket.author.nickname }}</td>
+				<td></td>
+			</tr>
+		{% endfor %}
 	</table>
 
 	<a href="#" data-target="add-ticket" class="toggle">{% trans 'Add new ticket' %}</a>

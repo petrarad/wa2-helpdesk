@@ -1,4 +1,12 @@
 body {
-  font-family: Verdana, Helvetica, sans-serif;
-  background-color: #DDDDDD;
+	font-family: Verdana, Helvetica, sans-serif;
+	background-color: #DDDDDD;
+}
+
+h1 {
+	text-align: center;
+}
+
+.hidden {
+	display: none;
 }

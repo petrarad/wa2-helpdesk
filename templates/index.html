@@ -1,6 +1,7 @@
 {%extends "base.html"%}
 
 {%block body%}
+	<table>
 	{% for ticket in tickets %}
 		{% if ticket.author %}
 			<b>{{ ticket.author.nickname }}</b>:
@@ -9,8 +10,11 @@
 		{% endif %}
 		<blockquote>{{ ticket.description|escape }}</blockquote>
 	{% endfor %}
+	</table>
 
-	<form action="/add-ticket" method="post">
+	<a href="#" data-target="add-ticket" class="toggle">Add new ticket</a>
+
+	<form action="/add-ticket" method="post" id="add-ticket" class="hidden">
 		<div><textarea name="description" rows="3" cols="60"></textarea></div>
 		<div><input type="submit" value="Add ticket"></div>
 	</form>

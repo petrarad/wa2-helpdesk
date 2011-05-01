@@ -16,6 +16,10 @@ td, th {
 	border: 1px solid #999;
 }
 
+a {
+	color: #00f;
+}
+
 .hidden {
 	display: none;
 }

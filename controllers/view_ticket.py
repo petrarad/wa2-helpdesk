@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import os
-import json
+from django.utils import simplejson as json
 from google.appengine.ext import webapp
 from google.appengine.api import users
 from google.appengine.ext.webapp import template

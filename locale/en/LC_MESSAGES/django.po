@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WA2-HelpDesk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-01 21:30+0200\n"
+"POT-Creation-Date: 2011-05-01 21:52+0200\n"
 "PO-Revision-Date: 2011-05-01 21:24+0100\n"
 "Last-Translator: Daniel Milde <daniel@milde.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,19 +16,47 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.py:10
+#: config.py:10 templates/base.html:18
 msgid "English"
 msgstr "English"
 
-#: config.py:11
+#: config.py:11 templates/base.html:17
 msgid "Czech"
 msgstr "Czech"
 
-#: templates/index.html:19
+#: templates/base.html:16
+msgid "Language"
+msgstr ""
+
+#: templates/index.html:7
+msgid "ID"
+msgstr ""
+
+#: templates/index.html:8
+msgid "project"
+msgstr ""
+
+#: templates/index.html:9
+msgid "severity"
+msgstr ""
+
+#: templates/index.html:10
+msgid "summary"
+msgstr ""
+
+#: templates/index.html:11
+msgid "owner"
+msgstr ""
+
+#: templates/index.html:12
+msgid "status"
+msgstr ""
+
+#: templates/index.html:26
 msgid "Add new ticket"
 msgstr "Add new ticket"
 
-#: templates/index.html:23
+#: templates/index.html:30
 #, fuzzy
 msgid "Add ticket"
 msgstr "Add new ticket"

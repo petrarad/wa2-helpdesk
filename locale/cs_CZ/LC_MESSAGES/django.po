@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WA2-HelpDesk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-01 21:30+0200\n"
-"PO-Revision-Date: 2011-05-01 21:31+0100\n"
+"POT-Creation-Date: 2011-05-01 21:52+0200\n"
+"PO-Revision-Date: 2011-05-01 21:53+0100\n"
 "Last-Translator: Daniel Milde <daniel@milde.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,18 +17,48 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: config.py:10
+#: templates/base.html:18
 msgid "English"
 msgstr "Anglicky"
 
 #: config.py:11
+#: templates/base.html:17
 msgid "Czech"
 msgstr "Česky"
 
-#: templates/index.html:19
+#: templates/base.html:16
+msgid "Language"
+msgstr "Jazyk"
+
+#: templates/index.html:7
+msgid "ID"
+msgstr "ID"
+
+#: templates/index.html:8
+msgid "project"
+msgstr "projekt"
+
+#: templates/index.html:9
+msgid "severity"
+msgstr "pracnost"
+
+#: templates/index.html:10
+msgid "summary"
+msgstr "shrnutí"
+
+#: templates/index.html:11
+msgid "owner"
+msgstr "vlastník"
+
+#: templates/index.html:12
+msgid "status"
+msgstr "stav"
+
+#: templates/index.html:26
 msgid "Add new ticket"
 msgstr "Přidat nový tiket"
 
-#: templates/index.html:23
+#: templates/index.html:30
 msgid "Add ticket"
 msgstr "Přidat tiket"
 

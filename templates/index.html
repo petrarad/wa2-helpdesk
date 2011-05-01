@@ -1,0 +1,18 @@
+{%extends "base.html"%}
+
+{%block body%}
+	{% for ticket in tickets %}
+		{% if ticket.author %}
+			<b>{{ ticket.author.nickname }}</b>:
+		{% else %}
+			An anonymous person wrote:
+		{% endif %}
+		<blockquote>{{ ticket.description|escape }}</blockquote>
+	{% endfor %}
+
+	<form action="/add-ticket" method="post">
+		<div><textarea name="description" rows="3" cols="60"></textarea></div>
+		<div><input type="submit" value="Add ticket"></div>
+	</form>
+
+{%endblock%}

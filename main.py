@@ -7,6 +7,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 
 from controllers.list_tickets import ListTickets
 from controllers.add_ticket import AddTicket
+from controllers.view_ticket import ViewTicket
 from google.appengine.ext.webapp import template
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'config'
@@ -17,7 +18,15 @@ settings._target = None
 def main():
 	application = webapp.WSGIApplication([
 										('/', ListTickets),
-										('/add-ticket', AddTicket)
+										('/index.(en|cs)', ListTickets),
+										('/index.(en|cs)\.(json|html|xml)', ListTickets),
+
+										(r'/add-ticket', AddTicket),
+
+										(r'/ticket/([0-9]+)', ViewTicket),
+										(r'/ticket/([0-9]+)\.(en|cs)', ViewTicket),
+										(r'/ticket/([0-9]+)\.(en|cs)\.(json|html|xml)', ViewTicket),
+
 										], debug=True)
 	run_wsgi_app(application)
 

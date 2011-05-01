@@ -1,7 +1,11 @@
+{% load i18n %}
 {%extends "base.html"%}
 
-{%block body%}
+{%block content%}
 	<table>
+		<tr>
+			<th></th>
+		</tr>
 	{% for ticket in tickets %}
 		{% if ticket.author %}
 			<b>{{ ticket.author.nickname }}</b>:
@@ -12,11 +16,11 @@
 	{% endfor %}
 	</table>
 
-	<a href="#" data-target="add-ticket" class="toggle">Add new ticket</a>
+	<a href="#" data-target="add-ticket" class="toggle">{% trans 'Add new ticket' %}</a>
 
 	<form action="/add-ticket" method="post" id="add-ticket" class="hidden">
 		<div><textarea name="description" rows="3" cols="60"></textarea></div>
-		<div><input type="submit" value="Add ticket"></div>
+		<div><input type="submit" value="{% trans 'Add ticket' %}"></div>
 	</form>
 
 {%endblock%}

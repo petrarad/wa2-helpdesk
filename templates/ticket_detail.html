@@ -1,0 +1,8 @@
+{% load i18n %}
+{%extends "base.html"%}
+
+{%block content%}
+	<span>ID: {{ ticket.id }}</span><br />
+	<span>Summary: {{ ticket.description|escape }}</span><br />
+	<span>Owner: {{ ticket.owner }}</span><br />
+{%endblock%}

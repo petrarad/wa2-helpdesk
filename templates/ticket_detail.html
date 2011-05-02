@@ -3,6 +3,25 @@
 
 {%block content%}
 	<span>{% trans 'ID' %}: {{ ticket.id }}</span><br />
-	<span>{% trans 'summary' %}: {{ ticket.description|escape }}</span><br />
+	<span>{% trans 'summary' %}: {{ ticket.summary|escape }}</span><br />
+	<span>{% trans 'description' %}: {{ ticket.description|escape }}</span><br />
 	<span>{% trans 'owner' %}: {{ ticket.owner }}</span><br />
+
+
+<form action="/ticket/{{ ticket.id }}" method="post" id="update-ticket">
+	<fieldset>
+		<div>
+			<label for="summary">{% trans 'summary' %}</label>
+			<input type="text" name="summary" value="{{ ticket.summary|escape }}" />
+		</div>
+		<div>
+			<label for="description">{% trans 'description' %}</label>
+			<textarea name="description" rows="3" cols="60">{{ ticket.description|escape }}</textarea>
+		</div>
+		<div>
+			<input type="submit" value="{% trans 'Save ticket' %}">
+		</div>
+	</fieldset>
+</form>
+
 {%endblock%}

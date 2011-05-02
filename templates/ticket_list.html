@@ -26,7 +26,14 @@
 	<a href="#" data-target="add-ticket" class="toggle">{% trans 'Add new ticket' %}</a>
 
 	<form action="/add-ticket" method="post" id="add-ticket" class="hidden">
-		<div><textarea name="description" rows="3" cols="60"></textarea></div>
+		<div>
+			<label for="summary">{% trans 'summary' %}</label>
+			<input type="text" name="summary" />
+		</div>
+		<div>
+			<label for="description">{% trans 'description' %}</label>
+			<textarea name="description" rows="3" cols="60"></textarea>
+		</div>
 		<div><input type="submit" value="{% trans 'Add ticket' %}"></div>
 	</form>
 

@@ -2,7 +2,7 @@
 {%extends "base.html"%}
 
 {%block content%}
-	<span>ID: {{ ticket.id }}</span><br />
-	<span>Summary: {{ ticket.description|escape }}</span><br />
-	<span>Owner: {{ ticket.owner }}</span><br />
+	<span>{% trans 'ID' %}: {{ ticket.id }}</span><br />
+	<span>{% trans 'summary' %}: {{ ticket.description|escape }}</span><br />
+	<span>{% trans 'owner' %}: {{ ticket.owner }}</span><br />
 {%endblock%}

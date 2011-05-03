@@ -25,16 +25,12 @@ class ViewTicket(Base):
 			'owner': ticket.author.nickname(),
 		}
 
-		template_values = {
-			'ticket': ticket,
-		}
+		self.values['ticket'] = ticket
 
 		if output == 'html':
-			path = os.path.join(config.templateDir, 'ticket_detail.html')
-			self.response.out.write(template.render(path, template_values))
+			self.render('ticket_detail.html')
 		if output == 'xml':
-			path = os.path.join(config.templateDir, 'ticket_detail.xml')
-			self.response.out.write(template.render(path, template_values))
+			self.render('ticket_detail.xml')
 		elif output == 'json':
 			json.dump(ticket, self.response.out, indent = 4)
 

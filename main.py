@@ -4,11 +4,11 @@ import os
 import gettext
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.ext.webapp import template
 
 from controllers.list_tickets import ListTickets
 from controllers.add_ticket import AddTicket
 from controllers.view_ticket import ViewTicket
-from google.appengine.ext.webapp import template
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'config'
 from django.conf import settings

@@ -10,6 +10,12 @@
 	</head>
 	<body>
 		<h1><a href="/">WA2 - HelpDesk</a></h1>
+
+		<ul id="menu">
+			{% if show_admin_link %}<a href="/admin/">Admin</a>{% endif %}
+			<a href="{{ logout_link }}">Logout</a>
+		</ul>
+
 		{%block content%}{%endblock%}
 
 		<div id="footer">

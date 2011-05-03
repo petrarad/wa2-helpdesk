@@ -8,27 +8,26 @@ from google.appengine.api import users
 
 import config
 from controllers.base import Base
-from models.ticket_service import TicketService
+from models.severity_service import SeverityService
 
-class ListTickets(Base):
+class AdminListSeverities(Base):
 
 	@login_required
 	def get(self, lang = '', output = 'html'):
 		self.setLanguage(lang)
 
-		tickets = [ {
-			'id': t.key().id(),
-			'url': '/ticket/%d' % t.key().id(),
-			'description': t.description,
-			'owner': t.author.nickname(),
-		} for t in TicketService.getAll() ]
+		severities = [ {
+			'id': s.key().id(),
+			'url': '/admin/severity/%d' % s.key().id(),
+			'name': s.name,
+		} for s in SeverityService.getAll() ]
 
-		self.values['tickets'] = tickets
+		self.values['severities'] = severities
 
 		if output == 'html':
-			self.render('ticket_list.html')
+			self.render('admin_severity_list.html')
 		if output == 'xml':
-			self.render('ticket_list.xml')
+			self.render('admin_severity_list.xml')
 		elif output == 'json':
-			json.dump(tickets, self.response.out, indent = 4)
+			json.dump(severities, self.response.out, indent = 4)
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<statuses>
+{% for status in statuses %}
+	<status id="{{ status.id }}">
+		<url>{{ status.url }}</url>
+		<name>{{ status.name|escape }}</name>
+	</status>
+{% endfor %}
+</statuses>

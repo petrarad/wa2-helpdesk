@@ -29,6 +29,10 @@ a {
 	margin-bottom: 10px;
 }
 
+#menu {
+	float: right;
+}
+
 #footer {
 	position: fixed;
 	bottom: 10px;

@@ -8,27 +8,26 @@ from google.appengine.api import users
 
 import config
 from controllers.base import Base
-from models.ticket_service import TicketService
+from models.status_service import StatusService
 
-class ListTickets(Base):
+class AdminListStatuses(Base):
 
 	@login_required
 	def get(self, lang = '', output = 'html'):
 		self.setLanguage(lang)
 
-		tickets = [ {
-			'id': t.key().id(),
-			'url': '/ticket/%d' % t.key().id(),
-			'description': t.description,
-			'owner': t.author.nickname(),
-		} for t in TicketService.getAll() ]
+		statuses = [ {
+			'id': s.key().id(),
+			'url': '/admin/status/%d' % s.key().id(),
+			'name': s.name,
+		} for s in StatusService.getAll() ]
 
-		self.values['tickets'] = tickets
+		self.values['statuses'] = statuses
 
 		if output == 'html':
-			self.render('ticket_list.html')
+			self.render('admin_status_list.html')
 		if output == 'xml':
-			self.render('ticket_list.xml')
+			self.render('admin_status_list.xml')
 		elif output == 'json':
-			json.dump(tickets, self.response.out, indent = 4)
+			json.dump(statuses, self.response.out, indent = 4)
 

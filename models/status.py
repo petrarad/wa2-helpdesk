@@ -2,5 +2,5 @@
 
 from google.appengine.ext import db
 
-class TicketSeverity(db.Model):
+class Status(db.Model):
 	name = db.StringProperty(multiline=False)

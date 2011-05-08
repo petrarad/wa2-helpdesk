@@ -2,55 +2,59 @@
 {%extends "base.html"%}
 
 {%block content%}
-	<table class="tickets">
+
+<a href="/">Opened</a>
+<a href="/all">All</a>
+
+<table class="tickets">
+	<tr>
+		<th>{% trans 'ID' %}</th>
+		<th>{% trans 'project' %}</th>
+		<th>{% trans 'severity' %}</th>
+		<th>{% trans 'summary' %}</th>
+		<th>{% trans 'owner' %}</th>
+		<th>{% trans 'status' %}</th>
+	</tr>
+	{% for ticket in tickets %}
 		<tr>
-			<th>{% trans 'ID' %}</th>
-			<th>{% trans 'project' %}</th>
-			<th>{% trans 'severity' %}</th>
-			<th>{% trans 'summary' %}</th>
-			<th>{% trans 'owner' %}</th>
-			<th>{% trans 'status' %}</th>
+			<td><a href="{{ ticket.url }}">{{ ticket.id }}</a></td>
+			<td>{{ ticket.project }}</td>
+			<td>{{ ticket.severity }}</td>
+			<td><a href="{{ ticket.url }}">{{ ticket.summary|escape }}</a></td>
+			<td>{{ ticket.owner }}</td>
+			<td>{{ ticket.status }}</td>
 		</tr>
-		{% for ticket in tickets %}
-			<tr>
-				<td><a href="{{ ticket.url }}">{{ ticket.id }}</a></td>
-				<td>{{ ticket.project }}</td>
-				<td>{{ ticket.severity }}</td>
-				<td><a href="{{ ticket.url }}">{{ ticket.summary|escape }}</a></td>
-				<td>{{ ticket.owner }}</td>
-				<td>{{ ticket.status }}</td>
-			</tr>
-		{% endfor %}
-	</table>
+	{% endfor %}
+</table>
 
-	<a href="#" data-target="add-ticket" class="toggle">{% trans 'Add new ticket' %}</a>
+<a href="#" data-target="add-ticket" class="toggle">{% trans 'Add new ticket' %}</a>
 
-	<form action="/add-ticket" method="post" id="add-ticket" class="hidden">
-		<div>
-			<label for="summary">{% trans 'summary' %}</label>
-			<input type="text" name="summary" />
-		</div>
-		<div>
-			<label for="status">{% trans 'status' %}</label>
-			<select name="status">
-				{% for status in statuses %}
-					<option value="{{ status.id }}">{{ status.name }}</option>
-				{% endfor %}
-			</select>
-		</div>
-		<div>
-			<label for="severity">{% trans 'severity' %}</label>
-			<select name="severity">
-				{% for severity in severities %}
-					<option value="{{ severity.id }}">{{ severity.name }}</option>
-				{% endfor %}
-			</select>
-		</div>
-		<div>
-			<label for="description">{% trans 'description' %}</label>
-			<textarea name="description" rows="3" cols="60"></textarea>
-		</div>
-		<div><input type="submit" value="{% trans 'Add ticket' %}"></div>
-	</form>
+<form action="/add-ticket" method="post" id="add-ticket" class="hidden">
+	<div>
+		<label for="summary">{% trans 'summary' %}</label>
+		<input type="text" name="summary" />
+	</div>
+	<div>
+		<label for="status">{% trans 'status' %}</label>
+		<select name="status">
+			{% for status in statuses %}
+				<option value="{{ status.id }}">{{ status.name }}</option>
+			{% endfor %}
+		</select>
+	</div>
+	<div>
+		<label for="severity">{% trans 'severity' %}</label>
+		<select name="severity">
+			{% for severity in severities %}
+				<option value="{{ severity.id }}">{{ severity.name }}</option>
+			{% endfor %}
+		</select>
+	</div>
+	<div>
+		<label for="description">{% trans 'description' %}</label>
+		<textarea name="description" rows="3" cols="60"></textarea>
+	</div>
+	<div><input type="submit" value="{% trans 'Add ticket' %}"></div>
+</form>
 
 {%endblock%}

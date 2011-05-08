@@ -4,12 +4,12 @@
 {%block content%}
 
 <div id="update-ticket-data">
-	<span>{% trans 'ID' %}: {{ ticket.id }}</span><br />
-	<span>{% trans 'summary' %}: {{ ticket.summary|escape }}</span><br />
-	<span>{% trans 'status' %}: {{ ticket.status|escape }}</span><br />
-	<span>{% trans 'severity' %}: {{ ticket.severity|escape }}</span><br />
-	<span>{% trans 'description' %}: {{ ticket.description|escape }}</span><br />
-	<span>{% trans 'owner' %}: {{ ticket.owner }}</span><br />
+	<span><strong>{% trans 'ID' %}</strong>: {{ ticket.id }}</span><br />
+	<span><strong>{% trans 'summary' %}</strong>: {{ ticket.summary|escape }}</span><br />
+	<span><strong>{% trans 'status' %}</strong>: {{ ticket.status|escape }}</span><br />
+	<span><strong>{% trans 'severity' %}</strong>: {{ ticket.severity|escape }}</span><br />
+	<span><strong>{% trans 'description' %}</strong>: {{ ticket.description|escape }}</span><br />
+	<span><strong>{% trans 'owner' %}</strong>: {{ ticket.owner }}</span><br />
 </div>
 
 <a href="#" data-target="update-ticket" data-alt="{% trans 'Close' %}" class="toggle-edit">{% trans 'Edit ticket' %}</a>

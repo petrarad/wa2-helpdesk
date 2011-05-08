@@ -26,6 +26,8 @@ def main():
 										('/admin/list-statuses.(en|cs)\.(json|html|xml)', AdminListStatuses),
 
 										('/admin/list-severities', AdminListSeverities),
+										('/admin/list-severities.(en|cs)', AdminListSeverities),
+										('/admin/list-severities.(en|cs)\.(json|html|xml)', AdminListSeverities),
 
 										('/admin/add-status', AdminAddStatus),
 										('/admin/add-severity', AdminAddSeverity),

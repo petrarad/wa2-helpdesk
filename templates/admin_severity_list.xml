@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<severities>
+{% for severity in severities %}
+	<severity id="{{ severity.id }}">
+		<url>{{ severity.url }}</url>
+		<name>{{ severity.name|escape }}</name>
+	</severity>
+{% endfor %}
+</severityes>

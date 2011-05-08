@@ -8,6 +8,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 
 from controllers.list_tickets import ListTickets
+from controllers.list_all_tickets import ListAllTickets
 from controllers.add_ticket import AddTicket
 from controllers.view_ticket import ViewTicket
 from controllers.add_comment import AddComment
@@ -22,6 +23,10 @@ def main():
 										('/', ListTickets),
 										('/index.(en|cs)', ListTickets),
 										('/index.(en|cs)\.(json|html|xml)', ListTickets),
+
+										('/all', ListAllTickets),
+										('/all.(en|cs)', ListAllTickets),
+										('/all.(en|cs)\.(json|html|xml)', ListAllTickets),
 
 										(r'/add-ticket', AddTicket),
 

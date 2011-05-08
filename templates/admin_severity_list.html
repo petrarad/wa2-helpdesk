@@ -1,0 +1,28 @@
+{% load i18n %}
+{%extends "base.html"%}
+
+{%block content%}
+	<table class="severities">
+		<tr>
+			<th>{% trans 'ID' %}</th>
+			<th>{% trans 'name' %}</th>
+		</tr>
+		{% for severity in severities %}
+			<tr>
+				<td><a href="{{ severity.url }}">{{ severity.id }}</a></td>
+				<td><a href="{{ severity.url }}">{{ severity.name|escape }}</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+
+	<a href="#" data-target="add-severity" class="toggle">{% trans 'Add new severity' %}</a>
+
+	<form action="/admin/add-severity" method="post" id="add-severity" class="hidden">
+		<div>
+			<label for="name">{% trans 'name' %}</label>
+			<input type="text" name="name" />
+		</div>
+		<div><input type="submit" value="{% trans 'Add severity' %}"></div>
+	</form>
+
+{%endblock%}

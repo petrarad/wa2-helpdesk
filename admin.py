@@ -10,6 +10,7 @@ from controllers.admin_home import AdminHome
 from controllers.admin_list_severities import AdminListSeverities
 from controllers.admin_list_statuses import AdminListStatuses
 from controllers.admin_add_status import AdminAddStatus
+from controllers.admin_add_severity import AdminAddSeverity
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'config'
 from django.conf import settings
@@ -27,6 +28,7 @@ def main():
 										('/admin/list-severities', AdminListSeverities),
 
 										('/admin/add-status', AdminAddStatus),
+										('/admin/add-severity', AdminAddSeverity),
 
 										], debug=True)
 	run_wsgi_app(application)

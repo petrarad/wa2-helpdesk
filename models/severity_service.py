@@ -8,7 +8,7 @@ class SeverityService:
 
 	@staticmethod
 	def getAll(limit = 10):
-		return db.GqlQuery("SELECT * FROM Severity ORDER BY date DESC LIMIT %d" % limit)
+		return db.GqlQuery("SELECT * FROM Severity ORDER BY name ASC LIMIT %d" % limit)
 
 	@staticmethod
 	def getById(id):

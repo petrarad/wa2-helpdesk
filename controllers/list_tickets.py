@@ -27,7 +27,7 @@ class ListTickets(Base):
 			'status': t.status.name,
 			'severity': t.severity.name,
 			'owner': t.author.nickname(),
-		} for t in TicketService.getAll() ]
+		} for t in TicketService.getOpened() ]
 
 		statuses = [ {
 			'id': s.key().id(),

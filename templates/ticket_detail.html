@@ -2,17 +2,47 @@
 {%extends "base.html"%}
 
 {%block content%}
+
+<div id="update-ticket-data">
 	<span>{% trans 'ID' %}: {{ ticket.id }}</span><br />
 	<span>{% trans 'summary' %}: {{ ticket.summary|escape }}</span><br />
+	<span>{% trans 'status' %}: {{ ticket.status|escape }}</span><br />
+	<span>{% trans 'severity' %}: {{ ticket.severity|escape }}</span><br />
 	<span>{% trans 'description' %}: {{ ticket.description|escape }}</span><br />
 	<span>{% trans 'owner' %}: {{ ticket.owner }}</span><br />
+</div>
 
+<a href="#" data-target="update-ticket" data-alt="{% trans 'Close' %}" class="toggle-edit">{% trans 'Edit ticket' %}</a>
 
-<form action="/ticket/{{ ticket.id }}" method="post" id="update-ticket">
+<form action="/ticket/{{ ticket.id }}" method="post" id="update-ticket-form" class="hidden">
 	<fieldset>
 		<div>
 			<label for="summary">{% trans 'summary' %}</label>
 			<input type="text" name="summary" value="{{ ticket.summary|escape }}" />
+		</div>
+		<div>
+			<label for="status">{% trans 'status' %}</label>
+			<select name="status">
+				{% for status in statuses %}
+					{% ifequal status.name ticket.status %}
+						<option selected="selected" value="{{ status.id }}">{{ status.name }}</option>
+					{% else %}
+						<option value="{{ status.id }}">{{ status.name }}</option>
+					{% endifequal %}
+				{% endfor %}
+			</select>
+		</div>
+		<div>
+			<label for="severity">{% trans 'severity' %}</label>
+			<select name="severity">
+				{% for severity in severities %}
+					{% ifequal severity.name ticket.severity %}
+						<option selected="selected" value="{{ severity.id }}">{{ severity.name }}</option>
+					{% else %}
+						<option value="{{ severity.id }}">{{ severity.name }}</option>
+					{% endifequal %}
+				{% endfor %}
+			</select>
 		</div>
 		<div>
 			<label for="description">{% trans 'description' %}</label>

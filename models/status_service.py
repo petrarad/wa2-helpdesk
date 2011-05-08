@@ -8,10 +8,7 @@ class StatusService:
 
 	@staticmethod
 	def getAll(limit = 10):
-		r = db.GqlQuery("SELECT * FROM Status ORDER BY name ASC LIMIT %d" % limit)
-		#print r.count()
-		#print dir(r)
-		return r
+		return db.GqlQuery("SELECT * FROM Status ORDER BY name ASC LIMIT %d" % limit)
 
 	@staticmethod
 	def getById(id):

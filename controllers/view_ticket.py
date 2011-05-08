@@ -9,6 +9,8 @@ from google.appengine.ext.webapp import template
 import config
 from controllers.base import Base
 from models.ticket_service import TicketService
+from models.status_service import StatusService
+from models.severity_service import SeverityService
 
 class ViewTicket(Base):
 
@@ -22,10 +24,24 @@ class ViewTicket(Base):
 			'url': '/ticket/%d' % ticket.key().id(),
 			'summary': ticket.summary,
 			'description': ticket.description,
+			'status': ticket.status.name,
+			'severity': ticket.severity.name,
 			'owner': ticket.author.nickname(),
 		}
 
+		statuses = [ {
+			'id': s.key().id(),
+			'name': s.name,
+		} for s in StatusService.getAll() ]
+
+		severities = [ {
+			'id': s.key().id(),
+			'name': s.name,
+		} for s in SeverityService.getAll() ]
+
 		self.values['ticket'] = ticket
+		self.values['statuses']   = statuses
+		self.values['severities'] = severities
 
 		if output == 'html':
 			self.render('ticket_detail.html')
@@ -42,6 +58,8 @@ class ViewTicket(Base):
 			self.redirect('/')
 
 		ticket.author = user
+		ticket.status = StatusService.getById(self.request.get('status'))
+		ticket.severity = SeverityService.getById(self.request.get('severity'))
 
 		ticket.summary = self.request.get('summary')
 		ticket.description = self.request.get('description')

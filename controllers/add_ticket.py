@@ -4,6 +4,9 @@ from google.appengine.ext import webapp
 from google.appengine.api import users
 
 from models.ticket import Ticket
+from models.status_service import StatusService
+from models.severity_service import SeverityService
+
 from controllers.base import Base
 
 class AddTicket(Base):
@@ -17,6 +20,10 @@ class AddTicket(Base):
 
 		ticket.author = user
 
+		ticket.status = StatusService.getById(self.request.get('status'))
+		ticket.severity = SeverityService.getById(self.request.get('severity'))
+
 		ticket.description = self.request.get('description')
+		ticket.summary = self.request.get('summary')
 		ticket.put()
 		self.redirect('/')

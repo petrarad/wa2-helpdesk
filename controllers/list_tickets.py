@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import os
 from django.utils import simplejson as json
@@ -9,6 +10,8 @@ from google.appengine.api import users
 import config
 from controllers.base import Base
 from models.ticket_service import TicketService
+from models.status_service import StatusService
+from models.severity_service import SeverityService
 
 class ListTickets(Base):
 
@@ -19,11 +22,26 @@ class ListTickets(Base):
 		tickets = [ {
 			'id': t.key().id(),
 			'url': '/ticket/%d' % t.key().id(),
+			'summary': t.summary,
 			'description': t.description,
+			'status': t.status.name,
+			'severity': t.severity.name,
 			'owner': t.author.nickname(),
 		} for t in TicketService.getAll() ]
 
-		self.values['tickets'] = tickets
+		statuses = [ {
+			'id': s.key().id(),
+			'name': s.name,
+		} for s in StatusService.getAll() ]
+
+		severities = [ {
+			'id': s.key().id(),
+			'name': s.name,
+		} for s in SeverityService.getAll() ]
+
+		self.values['tickets']    = tickets
+		self.values['statuses']   = statuses
+		self.values['severities'] = severities
 
 		if output == 'html':
 			self.render('ticket_list.html')

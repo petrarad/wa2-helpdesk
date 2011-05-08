@@ -10,6 +10,7 @@ from google.appengine.ext.webapp import template
 from controllers.list_tickets import ListTickets
 from controllers.add_ticket import AddTicket
 from controllers.view_ticket import ViewTicket
+from controllers.add_comment import AddComment
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'config'
 from django.conf import settings
@@ -27,6 +28,8 @@ def main():
 										(r'/ticket/([0-9]+)', ViewTicket),
 										(r'/ticket/([0-9]+)\.(en|cs)', ViewTicket),
 										(r'/ticket/([0-9]+)\.(en|cs)\.(json|html|xml)', ViewTicket),
+
+										(r'/ticket/([0-9]+)/add-comment', AddComment),
 
 										], debug=True)
 	run_wsgi_app(application)

@@ -11,6 +11,7 @@ from controllers.base import Base
 from models.ticket_service import TicketService
 from models.status_service import StatusService
 from models.severity_service import SeverityService
+from models.comment_service import CommentService
 
 class ViewTicket(Base):
 
@@ -39,9 +40,16 @@ class ViewTicket(Base):
 			'name': s.name,
 		} for s in SeverityService.getAll() ]
 
+		comments = [ {
+			'author': c.author.nickname(),
+			'message': c.message,
+			'date': c.date,
+		} for c in CommentService.getByTicket(ticketId) ]
+
 		self.values['ticket'] = ticket
 		self.values['statuses']   = statuses
 		self.values['severities'] = severities
+		self.values['comments'] = comments
 
 		if output == 'html':
 			self.render('ticket_detail.html')

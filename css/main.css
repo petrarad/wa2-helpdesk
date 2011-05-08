@@ -29,6 +29,26 @@ a {
 	margin-bottom: 10px;
 }
 
+.comment {
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+}
+
+.comment .author {
+	float: left;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.comment .date {
+	float: right;
+	font-size: 0.8em;
+}
+
+.comment .message {
+	clear: both;
+}
+
 #menu {
 	float: right;
 }

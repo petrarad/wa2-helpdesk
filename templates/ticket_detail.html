@@ -14,6 +14,19 @@
 
 <a href="#" data-target="update-ticket" data-alt="{% trans 'Close' %}" class="toggle-edit">{% trans 'Edit ticket' %}</a>
 
+<h3>Comments</h3>
+
+{% for comment in comments %}
+<div class="comment">
+	<div class="author">{{ comment.author }}</div>
+	<div class="date">{{ comment.date }}</div>
+	<div class="message">{{ comment.message }}</div>
+</div>
+{% endfor %}
+
+
+<a href="#" data-target="add-comment" class="toggle">{% trans 'Add comment' %}</a>
+
 <form action="/ticket/{{ ticket.id }}" method="post" id="update-ticket-form" class="hidden">
 	<fieldset>
 		<div>
@@ -50,6 +63,18 @@
 		</div>
 		<div>
 			<input type="submit" value="{% trans 'Save ticket' %}">
+		</div>
+	</fieldset>
+</form>
+
+<form action="/ticket/{{ ticket.id }}/add-comment" method="post" id="add-comment" class="hidden">
+	<fieldset>
+		<div>
+			<label for="message">{% trans 'message' %}</label>
+			<textarea name="message"></textarea>
+		</div>
+		<div>
+			<input type="submit" value="{% trans 'Add comment' %}">
 		</div>
 	</fieldset>
 </form>

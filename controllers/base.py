@@ -6,6 +6,9 @@ from django.utils import translation
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
 
+os.environ['DJANGO_SETTINGS_MODULE'] = 'config'
+from django.conf import settings
+
 import config
 
 class Base(webapp.RequestHandler):

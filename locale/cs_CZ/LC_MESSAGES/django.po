@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: WA2-HelpDesk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-09 18:38+0200\n"
-"PO-Revision-Date: 2011-05-09 17:00+0100\n"
+"PO-Revision-Date: 2011-05-09 19:24+0100\n"
 "Last-Translator: Daniel Milde <daniel@milde.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,21 +16,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.py:8 templates/base.html:24
+#: config.py:8
+#: templates/base.html:24
 msgid "English"
 msgstr "Anglicky"
 
-#: config.py:9 templates/base.html:23
+#: config.py:9
+#: templates/base.html:23
 msgid "Czech"
 msgstr "Česky"
 
-#: templates/admin_severity_list.html:7 templates/admin_status_list.html:7
-#: templates/ticket_detail.html:7 templates/ticket_list.html:11
+#: templates/admin_severity_list.html:7
+#: templates/admin_status_list.html:7
+#: templates/ticket_detail.html:7
+#: templates/ticket_list.html:11
 msgid "ID"
 msgstr "ID"
 
-#: templates/admin_severity_list.html:8 templates/admin_severity_list.html:22
-#: templates/admin_status_list.html:8 templates/admin_status_list.html:22
+#: templates/admin_severity_list.html:8
+#: templates/admin_severity_list.html:22
+#: templates/admin_status_list.html:8
+#: templates/admin_status_list.html:22
 msgid "name"
 msgstr "název"
 
@@ -54,27 +60,35 @@ msgstr "Přidat stav"
 msgid "Language"
 msgstr "Jazyk"
 
-#: templates/ticket_detail.html:8 templates/ticket_detail.html.py:33
-#: templates/ticket_list.html:14 templates/ticket_list.html.py:34
+#: templates/ticket_detail.html:8
+#: templates/ticket_detail.html.py:33
+#: templates/ticket_list.html:14
+#: templates/ticket_list.html.py:34
 msgid "summary"
 msgstr "shrnutí"
 
-#: templates/ticket_detail.html:9 templates/ticket_detail.html.py:37
-#: templates/ticket_list.html:16 templates/ticket_list.html.py:38
+#: templates/ticket_detail.html:9
+#: templates/ticket_detail.html.py:37
+#: templates/ticket_list.html:16
+#: templates/ticket_list.html.py:38
 msgid "status"
 msgstr "stav"
 
-#: templates/ticket_detail.html:10 templates/ticket_detail.html.py:49
-#: templates/ticket_list.html:13 templates/ticket_list.html.py:46
+#: templates/ticket_detail.html:10
+#: templates/ticket_detail.html.py:49
+#: templates/ticket_list.html:13
+#: templates/ticket_list.html.py:46
 msgid "severity"
 msgstr "pracnost"
 
-#: templates/ticket_detail.html:11 templates/ticket_detail.html.py:61
+#: templates/ticket_detail.html:11
+#: templates/ticket_detail.html.py:61
 #: templates/ticket_list.html:54
 msgid "description"
 msgstr "popis"
 
-#: templates/ticket_detail.html:12 templates/ticket_list.html:15
+#: templates/ticket_detail.html:12
+#: templates/ticket_list.html:15
 msgid "owner"
 msgstr "vlastník"
 
@@ -86,7 +100,8 @@ msgstr "Zavřít"
 msgid "Edit ticket"
 msgstr "Editovat tiket"
 
-#: templates/ticket_detail.html:28 templates/ticket_detail.html.py:77
+#: templates/ticket_detail.html:28
+#: templates/ticket_detail.html.py:77
 msgid "Add comment"
 msgstr "Přidat komentář"
 
@@ -117,3 +132,4 @@ msgstr "Přidat nový tiket"
 #: templates/ticket_list.html:57
 msgid "Add ticket"
 msgstr "Přidat tiket"
+

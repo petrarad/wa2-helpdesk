@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WA2-HelpDesk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-01 21:52+0200\n"
+"POT-Creation-Date: 2011-05-09 16:59+0200\n"
 "PO-Revision-Date: 2011-05-01 21:24+0100\n"
 "Last-Translator: Daniel Milde <daniel@milde.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,47 +16,111 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.py:10 templates/base.html:18
+#: config.py:10 templates/base.html:24
 msgid "English"
 msgstr "English"
 
-#: config.py:11 templates/base.html:17
+#: config.py:11 templates/base.html:23
 msgid "Czech"
 msgstr "Czech"
 
-#: templates/base.html:16
-msgid "Language"
-msgstr ""
-
-#: templates/index.html:7
+#: templates/admin_severity_list.html:7 templates/admin_status_list.html:7
+#: templates/ticket_detail.html:7 templates/ticket_list.html:11
 msgid "ID"
 msgstr ""
 
-#: templates/index.html:8
-msgid "project"
+#: templates/admin_severity_list.html:8 templates/admin_severity_list.html:22
+#: templates/admin_status_list.html:8 templates/admin_status_list.html:22
+msgid "name"
 msgstr ""
 
-#: templates/index.html:9
-msgid "severity"
+#: templates/admin_severity_list.html:18
+#, fuzzy
+msgid "Add new severity"
+msgstr "Add new ticket"
+
+#: templates/admin_severity_list.html:25
+msgid "Add severity"
 msgstr ""
 
-#: templates/index.html:10
+#: templates/admin_status_list.html:18
+#, fuzzy
+msgid "Add new status"
+msgstr "Add new ticket"
+
+#: templates/admin_status_list.html:25
+#, fuzzy
+msgid "Add status"
+msgstr "Add new ticket"
+
+#: templates/base.html:22
+msgid "Language"
+msgstr ""
+
+#: templates/ticket_detail.html:8 templates/ticket_detail.html.py:33
+#: templates/ticket_list.html:14 templates/ticket_list.html.py:34
 msgid "summary"
 msgstr ""
 
-#: templates/index.html:11
-msgid "owner"
-msgstr ""
-
-#: templates/index.html:12
+#: templates/ticket_detail.html:9 templates/ticket_detail.html.py:37
+#: templates/ticket_list.html:16 templates/ticket_list.html.py:38
 msgid "status"
 msgstr ""
 
-#: templates/index.html:26
+#: templates/ticket_detail.html:10 templates/ticket_detail.html.py:49
+#: templates/ticket_list.html:13 templates/ticket_list.html.py:46
+msgid "severity"
+msgstr ""
+
+#: templates/ticket_detail.html:11 templates/ticket_detail.html.py:61
+#: templates/ticket_list.html:54
+msgid "description"
+msgstr ""
+
+#: templates/ticket_detail.html:12 templates/ticket_list.html:15
+msgid "owner"
+msgstr ""
+
+#: templates/ticket_detail.html:15
+msgid "Close"
+msgstr ""
+
+#: templates/ticket_detail.html:15
+#, fuzzy
+msgid "Edit ticket"
+msgstr "Add new ticket"
+
+#: templates/ticket_detail.html:28 templates/ticket_detail.html.py:77
+#, fuzzy
+msgid "Add comment"
+msgstr "Add new ticket"
+
+#: templates/ticket_detail.html:65
+#, fuzzy
+msgid "Save ticket"
+msgstr "Add new ticket"
+
+#: templates/ticket_detail.html:73
+msgid "message"
+msgstr ""
+
+#: templates/ticket_list.html:6
+msgid "Opened"
+msgstr ""
+
+#: templates/ticket_list.html:7
+msgid "All"
+msgstr ""
+
+#: templates/ticket_list.html:12
+msgid "project"
+msgstr ""
+
+#: templates/ticket_list.html:30
 msgid "Add new ticket"
 msgstr "Add new ticket"
 
-#: templates/index.html:30
+#: templates/ticket_list.html:57
 #, fuzzy
 msgid "Add ticket"
 msgstr "Add new ticket"

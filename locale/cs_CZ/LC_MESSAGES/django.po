@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WA2-HelpDesk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-01 21:52+0200\n"
-"PO-Revision-Date: 2011-05-01 21:53+0100\n"
+"POT-Creation-Date: 2011-05-09 16:59+0200\n"
+"PO-Revision-Date: 2011-05-09 17:00+0100\n"
 "Last-Translator: Daniel Milde <daniel@milde.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,48 +17,119 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: config.py:10
-#: templates/base.html:18
+#: templates/base.html:24
 msgid "English"
 msgstr "Anglicky"
 
 #: config.py:11
-#: templates/base.html:17
+#: templates/base.html:23
 msgid "Czech"
 msgstr "Česky"
 
-#: templates/base.html:16
-msgid "Language"
-msgstr "Jazyk"
-
-#: templates/index.html:7
+#: templates/admin_severity_list.html:7
+#: templates/admin_status_list.html:7
+#: templates/ticket_detail.html:7
+#: templates/ticket_list.html:11
 msgid "ID"
 msgstr "ID"
 
-#: templates/index.html:8
-msgid "project"
-msgstr "projekt"
+#: templates/admin_severity_list.html:8
+#: templates/admin_severity_list.html:22
+#: templates/admin_status_list.html:8
+#: templates/admin_status_list.html:22
+msgid "name"
+msgstr "název"
 
-#: templates/index.html:9
-msgid "severity"
-msgstr "pracnost"
+#: templates/admin_severity_list.html:18
+msgid "Add new severity"
+msgstr "Přidat novou pracnost"
 
-#: templates/index.html:10
+#: templates/admin_severity_list.html:25
+msgid "Add severity"
+msgstr "Přidat pracnost"
+
+#: templates/admin_status_list.html:18
+msgid "Add new status"
+msgstr "Přidat nový status"
+
+#: templates/admin_status_list.html:25
+msgid "Add status"
+msgstr "Přidat stav"
+
+#: templates/base.html:22
+msgid "Language"
+msgstr "Jazyk"
+
+#: templates/ticket_detail.html:8
+#: templates/ticket_detail.html.py:33
+#: templates/ticket_list.html:14
+#: templates/ticket_list.html.py:34
 msgid "summary"
 msgstr "shrnutí"
 
-#: templates/index.html:11
-msgid "owner"
-msgstr "vlastník"
-
-#: templates/index.html:12
+#: templates/ticket_detail.html:9
+#: templates/ticket_detail.html.py:37
+#: templates/ticket_list.html:16
+#: templates/ticket_list.html.py:38
 msgid "status"
 msgstr "stav"
 
-#: templates/index.html:26
+#: templates/ticket_detail.html:10
+#: templates/ticket_detail.html.py:49
+#: templates/ticket_list.html:13
+#: templates/ticket_list.html.py:46
+msgid "severity"
+msgstr "pracnost"
+
+#: templates/ticket_detail.html:11
+#: templates/ticket_detail.html.py:61
+#: templates/ticket_list.html:54
+msgid "description"
+msgstr "popis"
+
+#: templates/ticket_detail.html:12
+#: templates/ticket_list.html:15
+msgid "owner"
+msgstr "vlastník"
+
+#: templates/ticket_detail.html:15
+msgid "Close"
+msgstr "Zavřít"
+
+#: templates/ticket_detail.html:15
+msgid "Edit ticket"
+msgstr "Editovat tiket"
+
+#: templates/ticket_detail.html:28
+#: templates/ticket_detail.html.py:77
+msgid "Add comment"
+msgstr "Přidat komentář"
+
+#: templates/ticket_detail.html:65
+msgid "Save ticket"
+msgstr "Uložit tiket"
+
+#: templates/ticket_detail.html:73
+msgid "message"
+msgstr "zpráva"
+
+#: templates/ticket_list.html:6
+msgid "Opened"
+msgstr "Otevřené"
+
+#: templates/ticket_list.html:7
+msgid "All"
+msgstr "Všechny"
+
+#: templates/ticket_list.html:12
+msgid "project"
+msgstr "projekt"
+
+#: templates/ticket_list.html:30
 msgid "Add new ticket"
 msgstr "Přidat nový tiket"
 
-#: templates/index.html:30
+#: templates/ticket_list.html:57
 msgid "Add ticket"
 msgstr "Přidat tiket"
 

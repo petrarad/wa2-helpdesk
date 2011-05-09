@@ -12,11 +12,6 @@ from controllers.admin_list_statuses import AdminListStatuses
 from controllers.admin_add_status import AdminAddStatus
 from controllers.admin_add_severity import AdminAddSeverity
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'config'
-from django.conf import settings
-
-settings._target = None
-
 def main():
 	application = webapp.WSGIApplication([
 										('/admin/', AdminHome),

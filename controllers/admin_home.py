@@ -5,7 +5,6 @@ from django.utils import simplejson as json
 from google.appengine.ext import webapp
 from google.appengine.api import users
 
-import config
 from controllers.base import Base
 from models.ticket_service import TicketService
 

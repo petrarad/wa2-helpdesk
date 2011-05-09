@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import bootstrap
 import os
 import gettext
 from google.appengine.ext import webapp
@@ -12,11 +13,6 @@ from controllers.list_all_tickets import ListAllTickets
 from controllers.add_ticket import AddTicket
 from controllers.view_ticket import ViewTicket
 from controllers.add_comment import AddComment
-
-os.environ['DJANGO_SETTINGS_MODULE'] = 'config'
-from django.conf import settings
-
-settings._target = None
 
 def main():
 	application = webapp.WSGIApplication([

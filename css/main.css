@@ -1,32 +1,90 @@
+/**
+ * CSS - styles common for all pages
+ * @author QO
+ **/
+body, h1, h2, h3, h4, form, fieldset, legend, img, a, a img, ul, li, p {margin: 0px;  padding: 0px; border: none; text-decoration: none; list-style-type: none;}
+.clear { clear: both; }
+/*.hide { visibility: hidden; display: none; }*/
+.left { float: left; }
+.right { float: right; }
+.block { display: block; }
+/*.hidden { display: none; visibility: hidden; }*/
+.noborder { border: none !important; }
+a { text-decoration: none; }
+a img { border: none; }
+h1 { font-size: 2.4em; }
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.2em; }
+
+/**
+ * CSS - styles for WA2 - Helpdesk project
+ **/ 
 body {
 	font-family: Verdana, Helvetica, sans-serif;
-	background-color: #DDDDDD;
+	background-color: #FFFFFF;
+	font-size: 11px;
+	padding: 2em;
+	padding-top: 1em;
 }
-
 h1 {
-	text-align: center;
+	font-size: 3.5em;
+	position: relative;
+	bottom: -0.3em; 
+	font-family: 'Annie Use Your Telescope', serif;
+	margin-left: 0.5em;
 }
-
-table {
-	border-collapse: collapse;
+h1 a {
+	color: #000;
+	text-decoration: none;
 }
-
-td, th {
-	padding: 5px;
-	border: 1px solid #999;
+h2 {
+	background-color: #7D1DA3;
+	background: -moz-linear-gradient(right, #58007A, #9316C4);
+  background: -webkit-gradient(linear,left top, right top, from(#58007A), to(#9316C4));
+  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#58007A', EndColorStr='#9316C4', GradientType=1);
+	padding: 0.3em;
+	color: #FFF;
+	font-size: 1.3em;
+	border-top: 4px solid #000;
 }
-
+h2 a {
+	color: #FFF;
+	text-decoration: none;
+}
 a {
-	color: #00f;
+	color: #58007A;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
 }
 
 .hidden {
 	display: none;
 }
-
-.tickets {
+legend {
+	display: none;
+}
+table {
 	width: 100%;
 	margin-bottom: 10px;
+	border-collapse: collapse;
+}
+th {
+	background-color: #CCC;
+}
+td, th {
+	padding: 5px;
+	border: 1px solid #999;
+}
+td {
+	border-right-style: dotted;
+	border-left-style: dotted;
+}
+.odd td {
+	background-color: #F3F3F3;
 }
 
 .comment {
@@ -37,7 +95,7 @@ a {
 .comment .author {
 	float: left;
 	font-weight: bold;
-	margin-bottom: 5px;
+	padding: 0.5em;
 }
 
 .comment .date {
@@ -47,9 +105,18 @@ a {
 
 .comment .message {
 	clear: both;
+	padding: 1.3em;
+	color: #333333;
 }
 
 #menu {
+	float: right;
+}
+#menu a {
+	padding: 0.5em;
+	font-size: 1.3em;
+	color: #FFF;
+	display: block;
 	float: right;
 }
 
@@ -60,4 +127,38 @@ a {
 	width: 100%;
 	font-size: 0.8em;
 	color: #555;
+}
+
+form {}
+form label {
+	width: 12em;
+	padding-right: 1em;
+	color: #333;
+	font-size: 0.9em;
+	display: block;
+	float: left;
+	font-weight: bolder;
+	padding-top: 0.4em;
+}
+form fieldset div {
+	padding: 0.3em 0;
+}
+.filters {
+	padding: 0.5em 0;
+}
+.filters li {
+	display: inline;
+}
+dl {
+	padding: 1em 1em 0 1em;
+}
+dt {
+	font-weight: bolder;
+	width: 12em;
+	float: left;
+	clear: left;
+	padding: 0.3em;
+}
+dd {
+	padding: 0.3em;
 }

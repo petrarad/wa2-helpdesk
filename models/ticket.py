@@ -7,6 +7,7 @@ from severity import Severity
 
 class Ticket(db.Model):
 	author = db.UserProperty()
+	assignedUser = db.UserProperty()
 	project = db.StringProperty(multiline=False)
 	severity = db.ReferenceProperty(Severity)
 	status = db.ReferenceProperty(Status)

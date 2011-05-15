@@ -15,4 +15,8 @@ $(document).ready(function(){
 		$(this).attr('data-alt', msg);
 		return false;
 	});
+	
+	$('.confirmSubmit').submit(function(){
+		return confirm('Are you sure?');
+	})
  });

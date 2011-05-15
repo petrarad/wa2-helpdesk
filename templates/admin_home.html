@@ -2,7 +2,12 @@
 {% load i18n %}
 
 {%block content%}
-	<a href="/admin/list-statuses">Statuses</a>
-	<a href="/admin/list-severities">Severities</a>
+
+<h2><a href="/admin/">{% trans 'Administration' %}</a></h2>
+
+<ul class="filters">
+	<li><a href="/admin/statuses">Statuses</a></li>
+	<li><a href="/admin/severities">Severities</a></li>
+</ul>
 
 {%endblock%}

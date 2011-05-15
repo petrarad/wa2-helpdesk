@@ -3,58 +3,80 @@
 
 {%block content%}
 
-<a href="/">{% trans 'Opened' %}</a>
-<a href="/all">{% trans 'All' %}</a>
+<h2><a href="{{ self.request.GET }}">{% trans 'Ticket list' %}</a></h2>
 
-<table class="tickets">
-	<tr>
-		<th>{% trans 'ID' %}</th>
-		<th>{% trans 'project' %}</th>
-		<th>{% trans 'severity' %}</th>
-		<th>{% trans 'summary' %}</th>
-		<th>{% trans 'owner' %}</th>
-		<th>{% trans 'status' %}</th>
-	</tr>
-	{% for ticket in tickets %}
+<ul class="filters">
+	<li><a href="/">{% trans 'Opened' %}</a></li>
+	<li><a href="/all">{% trans 'All' %}</a></li>
+</ul>
+
+<table class="tickets" cellpadding="0" cellspacing="0">
+	<thead>
 		<tr>
+			<th><a href="{{ self.request.GET }}?order=id">{% trans 'ID' %}</a></th>
+			<th><a href="{{ self.request.GET }}?order=project">{% trans 'project' %}</a></th>
+			<th><a href="{{ self.request.GET }}?order=severity">{% trans 'severity' %}</a></th>
+			<th><a href="{{ self.request.GET }}?order=summary">{% trans 'summary' %}</a></th>
+			<th><a href="{{ self.request.GET }}?order=author">{% trans 'owner' %}</a></th>
+			<th><a href="{{ self.request.GET }}?order=assignedUser">{% trans 'assigned user' %}</a></th>
+			<th><a href="{{ self.request.GET }}?order=status">{% trans 'status' %}</a></th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for ticket in tickets %}
+		<tr class="{% cycle even,odd %}">
 			<td><a href="{{ ticket.url }}">{{ ticket.id }}</a></td>
 			<td>{{ ticket.project }}</td>
 			<td>{{ ticket.severity }}</td>
 			<td><a href="{{ ticket.url }}">{{ ticket.summary|escape }}</a></td>
 			<td>{{ ticket.owner }}</td>
+			<td>{{ ticket.solver }}</td>
 			<td>{{ ticket.status }}</td>
 		</tr>
 	{% endfor %}
+	</tbody>
 </table>
 
 <a href="#" data-target="add-ticket" class="toggle">{% trans 'Add new ticket' %}</a>
 
 <form action="/add-ticket" method="post" id="add-ticket" class="hidden">
-	<div>
-		<label for="summary">{% trans 'summary' %}</label>
-		<input type="text" name="summary" />
-	</div>
-	<div>
-		<label for="status">{% trans 'status' %}</label>
-		<select name="status">
-			{% for status in statuses %}
-				<option value="{{ status.id }}">{{ status.name }}</option>
+	<fieldset>
+		<legend>{% trans 'Add new ticket' %}</legend>
+		<div>
+			<label for="summary">{% trans 'summary' %}</label>
+			<input type="text" name="summary" />
+		</div>
+		<div>
+			<label for="status">{% trans 'status' %}</label>
+			<select name="status">
+				{% for status in statuses %}
+					<option value="{{ status.id }}">{{ status.name }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div>
+			<label for="severity">{% trans 'severity' %}</label>
+			<select name="severity">
+				{% for severity in severities %}
+					<option value="{{ severity.id }}">{{ severity.name }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div>
+			<label for="assignedUser">{% trans 'Assigned user' %}</label>
+			<select name="assignedUser">
+				<option value="">- {% trans 'not assigned' %} -</option>
+			{% for item in contacts.items %}
+				<option value="{{ item.1 }}">{{ item.0 }}</option>
 			{% endfor %}
-		</select>
-	</div>
-	<div>
-		<label for="severity">{% trans 'severity' %}</label>
-		<select name="severity">
-			{% for severity in severities %}
-				<option value="{{ severity.id }}">{{ severity.name }}</option>
-			{% endfor %}
-		</select>
-	</div>
-	<div>
-		<label for="description">{% trans 'description' %}</label>
-		<textarea name="description" rows="3" cols="60"></textarea>
-	</div>
-	<div><input type="submit" value="{% trans 'Add ticket' %}"></div>
+			</select>
+		</div>
+		<div>
+			<label for="description">{% trans 'description' %}</label>
+			<textarea name="description" rows="3" cols="60"></textarea>
+		</div>
+		<div><input type="submit" value="{% trans 'Add ticket' %}"></div>
+	</fieldset>
 </form>
 
 {%endblock%}

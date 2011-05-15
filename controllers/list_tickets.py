@@ -2,31 +2,60 @@
 # -*- coding: utf-8 -*-
 
 import os
+import atom
+
+from google.appengine.api import users
+from google.appengine.ext import db
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp import template
+
+import gdata.alt.appengine
+import gdata.contacts.service
+import gdata.service
+
 from django.utils import simplejson as json
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import login_required
 from google.appengine.api import users
 
 from controllers.base import Base
+from controllers.ticket_base import TicketBase
 from models.ticket_service import TicketService
 from models.status_service import StatusService
 from models.severity_service import SeverityService
+from models.stored_token import StoredToken
 
-class ListTickets(Base):
+APP_INFO = """Info"""
+APP_NAME = 'WA2 - Helpdesk'
+HOST_NAME = 'wa2-helpdesk.appspot.com'
 
+class ListTickets(TicketBase):
 	@login_required
-	def get(self, lang = '', output = 'html'):
+	def get(self, status = '', lang = '', output = 'html'):
 		self.setLanguage(lang)
-
+		self.current_user = users.GetCurrentUser()
+		
+		if not self.current_user:
+			return self.toLogin()
+		else:
+			self.token = self.request.get('token')
+			self.ManageAuth()
+			self.LookupToken()
+			
+			if self.client.GetAuthSubToken() is None:
+				return self.toAuthorize()
+		
 		tickets = [ {
 			'id': t.key().id(),
 			'url': '/ticket/%d' % t.key().id(),
+			'project': t.project,
 			'summary': t.summary,
 			'description': t.description,
 			'status': t.status.name,
 			'severity': t.severity.name,
 			'owner': t.author.nickname(),
-		} for t in TicketService.getOpened() ]
+			'solver': t.assignedUser.nickname() if t.assignedUser else '-'
+		} for t in TicketService.getByStatus(status, 20, self.request.get('order')) ]
 
 		statuses = [ {
 			'id': s.key().id(),
@@ -41,6 +70,7 @@ class ListTickets(Base):
 		self.values['tickets']    = tickets
 		self.values['statuses']   = statuses
 		self.values['severities'] = severities
+		self.values['contacts'] = self.GetContacts()
 
 		if output == 'html':
 			self.render('ticket_list.html')
@@ -48,4 +78,10 @@ class ListTickets(Base):
 			self.render('ticket_list.xml')
 		elif output == 'json':
 			json.dump(tickets, self.response.out, indent = 4)
-
+	def toAuthorize(self):
+		self.values = {
+			'authsub_url': self.client.GenerateAuthSubURL('http://%s/' % (HOST_NAME),'%s' % ('http://www.google.com/m8/feeds/'),secure=False, session=True),
+			'app_name': APP_NAME,
+#					'css_link': CSS_LINK
+		}
+		return self.render('authorize_access.html')

@@ -7,25 +7,32 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 
 from controllers.admin_home import AdminHome
-from controllers.admin_list_severities import AdminListSeverities
-from controllers.admin_list_statuses import AdminListStatuses
 from controllers.admin_add_status import AdminAddStatus
 from controllers.admin_add_severity import AdminAddSeverity
+
+from controllers.admin_status_collection import AdminStatusCollection
+from controllers.admin_status_resource import AdminStatusResource
+
+from controllers.admin_severity_collection import AdminSeverityCollection
+from controllers.admin_severity_resource import AdminSeverityResource
 
 def main():
 	application = webapp.WSGIApplication([
 										('/admin/', AdminHome),
 
-										('/admin/list-statuses', AdminListStatuses),
-										('/admin/list-statuses.(en|cs)', AdminListStatuses),
-										('/admin/list-statuses.(en|cs)\.(json|html|xml)', AdminListStatuses),
+										(r'/admin/statuses', AdminStatusCollection),
+										(r'/admin/statuses/([0-9]+)\.(en|cs)', AdminStatusCollection),
+										(r'/admin/statuses/([0-9]+)\.(en|cs)\.(json|html|xml)', AdminStatusResource),
+										(r'/admin/status/([0-9]+)', AdminStatusResource),
+										(r'/admin/status/([0-9]+)\.(en|cs)', AdminStatusResource),
+										(r'/admin/status/([0-9]+)\.(en|cs)\.(json|html|xml)', AdminStatusResource),
 
-										('/admin/list-severities', AdminListSeverities),
-										('/admin/list-severities.(en|cs)', AdminListSeverities),
-										('/admin/list-severities.(en|cs)\.(json|html|xml)', AdminListSeverities),
-
-										('/admin/add-status', AdminAddStatus),
-										('/admin/add-severity', AdminAddSeverity),
+										(r'/admin/severities', AdminSeverityCollection),
+										(r'/admin/severities/([0-9]+)\.(en|cs)', AdminSeverityCollection),
+										(r'/admin/severities/([0-9]+)\.(en|cs)\.(json|html|xml)', AdminSeverityResource),
+										(r'/admin/severity/([0-9]+)', AdminSeverityResource),
+										(r'/admin/severity/([0-9]+)\.(en|cs)', AdminSeverityResource),
+										(r'/admin/severity/([0-9]+)\.(en|cs)\.(json|html|xml)', AdminSeverityResource),
 
 										], debug=True)
 	run_wsgi_app(application)

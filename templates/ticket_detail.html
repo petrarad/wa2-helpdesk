@@ -3,14 +3,17 @@
 
 {%block content%}
 
-<div id="update-ticket-data">
-	<span><strong>{% trans 'ID' %}</strong>: {{ ticket.id }}</span><br />
-	<span><strong>{% trans 'summary' %}</strong>: {{ ticket.summary|escape }}</span><br />
-	<span><strong>{% trans 'status' %}</strong>: {{ ticket.status|escape }}</span><br />
-	<span><strong>{% trans 'severity' %}</strong>: {{ ticket.severity|escape }}</span><br />
-	<span><strong>{% trans 'description' %}</strong>: {{ ticket.description|escape }}</span><br />
-	<span><strong>{% trans 'owner' %}</strong>: {{ ticket.owner }}</span><br />
-</div>
+<h2><a href="/">{% trans 'Ticket list' %}</a> &raquo; <a href="{{ ticket.url }}">Ticket {{ ticket.id }}</a></h2>
+
+<dl id="update-ticket-data">
+	<dt>{% trans 'ID' %}</dt><dd>{{ ticket.id }}</dd>
+	<dt>{% trans 'summary' %}</dt><dd>{{ ticket.summary|escape }}</dd>
+	<dt>{% trans 'status' %}</dt><dd>{{ ticket.status|escape }}</dd>
+	<dt>{% trans 'severity' %}</dt><dd>{{ ticket.severity|escape }}</dd>
+	<dt>{% trans 'description' %}</dt><dd>{{ ticket.description|escape }}</dd>
+	<dt>{% trans 'owner' %}</dt><dd>{{ ticket.owner }}</dd>
+	<dt>{% trans 'assigned user' %}</dt><dd>{{ ticket.solver }}</dd>
+</dl>
 
 <a href="#" data-target="update-ticket" data-alt="{% trans 'Close' %}" class="toggle-edit">{% trans 'Edit ticket' %}</a>
 
@@ -53,6 +56,19 @@
 						<option selected="selected" value="{{ severity.id }}">{{ severity.name }}</option>
 					{% else %}
 						<option value="{{ severity.id }}">{{ severity.name }}</option>
+					{% endifequal %}
+				{% endfor %}
+			</select>
+		</div>
+		<div>
+		<label for="assignedUser">{% trans 'Assigned user' %}</label>
+			<select name="assignedUser">
+				<option value="">- {% trans 'not assigned' %} -</option>
+				{% for item in contacts.items %}
+					{% ifequal item.1 ticket.solverEmail %}
+							<option selected="selected" value="{{ item.1 }}">{{ item.0 }}</option>
+					{% else %}
+							<option value="{{ item.1 }}">{{ item.0 }}</option>
 					{% endifequal %}
 				{% endfor %}
 			</select>

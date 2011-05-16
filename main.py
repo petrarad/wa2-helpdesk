@@ -16,8 +16,8 @@ from controllers.add_comment import AddComment
 def main():
 	application = webapp.WSGIApplication([
 										('/(|all|opened)', ListTickets),
-										('/(|all/|opened/)index.(en|cs)', ListTickets),
-										('/(|all/|opened/)index.(en|cs)\.(json|html|xml)', ListTickets),
+										('/(all|opened)\.(en|cs)', ListTickets),
+										('/(all|opened)\.(en|cs)\.(json|html|xml)', ListTickets),
 
 										(r'/add-ticket', AddTicket),
 

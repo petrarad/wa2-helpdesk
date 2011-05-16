@@ -3,8 +3,10 @@
 {% for ticket in tickets %}
 	<ticket id="{{ ticket.id }}">
 		<url>{{ ticket.url }}</url>
+		<sumary>{{ ticket.summary}}</summary>
 		<description>{{ ticket.description|escape }}</description>
 		<owner>{{ ticket.owner }}</owner>
+		<assignedUser>{{ ticket.solver }}</assignedUser>
 	</ticket>
 {% endfor %}
 </tickets>

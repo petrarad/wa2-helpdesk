@@ -2,6 +2,8 @@
 <ticket id="{{ ticket.id }}">
 	<url>{{ ticket.url }}</url>
 	<description>{{ ticket.description|escape }}</description>
+	<sumary>{{ ticket.summary}}</summary>
 	<owner>{{ ticket.owner }}</owner>
+	<assignedUser>{{ ticket.solver }}</assignedUser>
 </ticket>
 

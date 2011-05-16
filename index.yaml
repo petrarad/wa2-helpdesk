@@ -19,3 +19,55 @@ indexes:
   properties:
   - name: __key__
     direction: desc
+
+- kind: Ticket
+  properties:
+  - name: status
+  - name: assignedUser
+
+- kind: Ticket
+  properties:
+  - name: status
+  - name: assignedUser
+    direction: desc
+
+- kind: Ticket
+  properties:
+  - name: status
+  - name: date
+    direction: desc
+
+- kind: Ticket
+  properties:
+  - name: status
+    direction: desc
+  - name: assignedUser
+    direction: desc
+
+- kind: Ticket
+  properties:
+  - name: status
+    direction: desc
+  - name: author
+    direction: desc
+
+- kind: Ticket
+  properties:
+  - name: status
+    direction: desc
+  - name: date
+    direction: desc
+
+- kind: Ticket
+  properties:
+  - name: status
+    direction: desc
+  - name: severity
+    direction: desc
+
+- kind: Ticket
+  properties:
+  - name: status
+    direction: desc
+  - name: summary
+    direction: desc

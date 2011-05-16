@@ -35,7 +35,7 @@ class ViewTicket(TicketBase):
 				return self.toAuthorize()
 		ticket = TicketService.getById(ticketId)
 
-		ticket = {
+		ticketDict = {
 			'id': ticket.key().id(),
 			'project': ticket.project,
 			'url': '/ticket/%d' % ticket.key().id(),
@@ -64,11 +64,22 @@ class ViewTicket(TicketBase):
 			'date': c.date,
 		} for c in CommentService.getByTicket(ticketId) ]
 
-		self.values['ticket'] = ticket
+		contacts = self.GetContacts()
+		if ticket.assignedUser:
+			userEmail = ticket.assignedUser.email()
+			index = [k for k, v in contacts.iteritems() if v == userEmail]
+			if len(index):
+				del contacts[index[0]]
+				contacts['%s (now assigned)' % index[0]] = userEmail
+			else:
+				assignedUserName = '%s - %s (now assigned)' % (ticket.assignedUser.nickname(), userEmail)
+				contacts[assignedUserName] = userEmail
+
+		self.values['ticket'] = ticketDict
 		self.values['statuses']   = statuses
 		self.values['severities'] = severities
 		self.values['comments'] = comments
-		self.values['contacts'] = self.GetContacts()
+		self.values['contacts'] = contacts
 
 		if output == 'html':
 			self.render('ticket_detail.html')
@@ -104,7 +115,7 @@ class ViewTicket(TicketBase):
 		if self.request.get('assignedUser'):
 			if(ticket.assignedUser):
 				if( ticket.assignedUser.email() != self.request.get('assignedUser') ):
-					taskUrl = "%s/task/%s" % ('http://%s' % HOST_NAME, ticketId)
+					taskUrl = "%s/ticket/%s" % ('http://%s' % HOST_NAME, ticketId)
 					mail.send_mail(
 					sender= user.email(),
 					to= self.request.get('assignedUser'),

@@ -39,7 +39,7 @@
 
 <a href="#" data-target="add-ticket" class="toggle">{% trans 'Add new ticket' %}</a>
 
-<form action="/add-ticket" method="post" id="add-ticket" class="hidden">
+<form action="{{ self.request.GET }}" method="post" id="add-ticket" class="hidden">
 	<fieldset>
 		<legend>{% trans 'Add new ticket' %}</legend>
 		<div>

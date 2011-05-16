@@ -10,6 +10,9 @@ handlers:
 - url: /js
   static_dir: js
 
+- url: /docs
+  static_dir: docs
+
 - url: /admin/.*
   script: admin.py
   login: admin
